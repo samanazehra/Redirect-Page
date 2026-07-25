@@ -78,7 +78,25 @@
     line-height:1.05;
     margin-bottom:20px;
   }
-  .hero h1 span{ color:#fff; -webkit-text-stroke: 2px #20130a; }
+  .hero-title{ display:block; }
+  .line-mask{
+    display:block;
+    overflow:hidden;
+    line-height:1.05;
+  }
+  .line-inner{
+    display:inline-block;
+    transform: translateY(110%);
+    opacity:0;
+    animation: lineReveal 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  @keyframes lineReveal{
+    to{ transform: translateY(0); opacity:1; }
+  }
+  .hero-title .accent{ color:#fff; -webkit-text-stroke: 2px #20130a; }
+  @media (prefers-reduced-motion: reduce){
+    .line-inner{ animation:none; transform:none; opacity:1; }
+  }
   .hero p.lead{
     font-size:1.15rem;
     color:#3a2400;
@@ -383,7 +401,11 @@
   <div class="wrap">
     <div>
       <span class="eyebrow">🎣 SSGC Cyber Awareness</span>
-      <h1>Stop.<br>Think.<br><span>Don't</span> click.</h1>
+      <h1 class="hero-title">
+        <span class="line-mask"><span class="line-inner" style="animation-delay:0.05s;">Stop.</span></span>
+        <span class="line-mask"><span class="line-inner" style="animation-delay:0.2s;">Think.</span></span>
+        <span class="line-mask"><span class="line-inner" style="animation-delay:0.35s;"><span class="accent">Don't</span> click.</span></span>
+      </h1>
       <p class="lead">One careless click can hand over your password, your data, and SSGC's systems to a stranger. Here's how to spot it before it happens.</p>
       <div class="hero-ctas">
         <a href="#flags" class="btn btn-dark">See the red flags</a>
@@ -454,7 +476,7 @@
         <h3>Always check the actual link — not just the label</h3>
         <div class="url-row">
           <span class="url-tag real">Real</span>
-          <span>https://<strong>ssgc.com.pk</strong>/web/</span>
+          <span>https://<strong>ssgc.com.pk</strong>/employee-portal</span>
         </div>
         <div class="url-row">
           <span class="url-tag fake">Fake</span>
@@ -544,8 +566,8 @@
     <div class="wrap">
       <div class="report">
         <h2>See something suspicious?</h2>
-        <p>Report suspicious emails to the NCCIA helpline. Reporting takes 30 seconds and helps protect everyone.</p>
-        <span class="contact">1799</span>
+        <p>Forward suspicious emails to the NCCIA helpline. Reporting takes 30 seconds and helps protect everyone.</p>
+        <span class="contact">incharge.ccrc.khi@nccia.gov.pk</span>
       </div>
     </div>
   </section>
